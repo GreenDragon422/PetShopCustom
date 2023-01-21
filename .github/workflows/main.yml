@@ -25,4 +25,4 @@ jobs:
           git config --global user.email 'githubactions@example.com'
           git add ./out
           git commit -m "Updated Petstore output"
-          git push 
+          git push origin main
