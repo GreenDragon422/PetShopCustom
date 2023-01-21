@@ -23,4 +23,10 @@ jobs:
         run: |
           cd local
           openapi-generator-cli generate -g aspnetcore -i petstore.yaml -c config.yaml -o out/aspnetcore --additional-properties=aspnetCoreVersion=6.0
-          ls -R
+      - name: commit and push output
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'githubactions@example.com'
+          git add ./out
+          git commit -m "Updated Petstore output"
+          git push 
