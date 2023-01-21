@@ -1,0 +1,8 @@
+templateDir: custom_templates
+additionalProperties:
+  artifactId: aspnetcore-petstore-client
+files:
+  controller.mustache:
+    templateType: API
+    folder: Controllers
+    destinationFilename: Controller.cs

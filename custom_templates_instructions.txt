@@ -1,0 +1,10 @@
+הפעלת מחולל openapi generator עם custom templates:
+1. Execute in cmd:
+
+openapi-generator-cli generate -g aspnetcore -i petstore.yaml -c config.yaml --additional-properties=aspnetCoreVersion=6.0                                                                                                    
+
+petstore.yaml - open api spec file
+config.yaml - additional custom templates
+
+2. create custom_templates folder in generation folder
+3. place modified mustache templates in custom templates folder
