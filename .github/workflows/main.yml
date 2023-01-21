@@ -9,7 +9,7 @@ jobs:
   refresh:
     runs-on: ubuntu-latest  
     container: 
-      image: openapitools@latest
+      image: openapitools/openapi-generator-cli
       volumes:
         - mnt:/local      
     steps:
@@ -19,4 +19,4 @@ jobs:
           path: local
       - name: run generator
         run: ls
-      #  run: docker run -v localvol:${GITHUB_WORKSPACE}/local openapitools/openapi-generator-cli generate -i /localvol/petstore.yaml -g aspnetcore -o /localvol/out/aspnetcore --additional-properties=aspnetCoreVersion=6.0
+      #  run: docker run openapitools/openapi-generator-cli generate -i local/petstore.yaml -g aspnetcore -o local/out/aspnetcore --additional-properties=aspnetCoreVersion=6.0
