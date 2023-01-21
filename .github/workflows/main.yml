@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: save run date
         run: |
-          now=`date`
+          now=`date %Y-%m-%d %T`
           echo "runtime=" $now >> $GITHUB_ENV          
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
