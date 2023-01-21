@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest  
     steps:
       - name: save run date
-        run: echo "runtime=%date%" >> $GITHUB_ENV          
+        run: echo "runtime=$(date)" >> $GITHUB_ENV          
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
