@@ -11,6 +11,8 @@ jobs:
   refresh:
     runs-on: ubuntu-latest  
     steps:
+      - name: save run date
+        run: echo "runtime=%date%" >> $GITHUB_ENV          
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
@@ -26,5 +28,5 @@ jobs:
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'githubactions@example.com'
           git add ./out
-          git commit -m "Updated Petstore output"
+          git commit -m "Updated Petstore output at ${{env.runtime}}"
           git push origin main
