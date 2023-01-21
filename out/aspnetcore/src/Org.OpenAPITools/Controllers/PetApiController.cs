@@ -24,7 +24,7 @@ namespace Org.OpenAPITools.Controllers
 { 
     /// <summary>
     /// 
-	/// This is a test generator
+	/// This is a test generator that was updated from github action
     /// </summary>
     [ApiController]
     public partial class PetApiController : ControllerBase
