@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest  
     steps:
       - uses: josStorer/get-current-time@v2.0.2
+        id: current-time
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
@@ -22,11 +23,9 @@ jobs:
         run: |
           openapi-generator-cli generate -g aspnetcore -i petstore.yaml -c config.yaml -o out/aspnetcore --additional-properties=aspnetCoreVersion=6.0
       - name: commit and push output
-        env:
-          TIME: "${{ steps.current-time.outputs.time }}"
         run: |
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'githubactions@example.com'
           git add ./out
-          git commit -m "Updated Petstore output at $TIME"
+          git commit -m "Updated Petstore output at ${{ steps.current-time.outputs.time }}"
           git push origin main
