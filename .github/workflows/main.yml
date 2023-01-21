@@ -16,6 +16,7 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
+          cache-dependency-path: local/package-lock.json
       - name: install generator
         run: npm install @openapitools/openapi-generator-cli -g
       - name: run generator
