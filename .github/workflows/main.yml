@@ -9,7 +9,6 @@ jobs:
   refresh:
     runs-on: ubuntu-latest  
     steps:
-      - name: setup
       - uses: actions/checkout@v3
         with:
           path: local
