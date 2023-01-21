@@ -20,6 +20,5 @@ jobs:
       - name: run generator
         run: |
           cd local
-          openapi-generator-cli generate -g aspnetcore -i petstore.yaml -c config.yaml -o local/out/aspnetcore --additional-properties=aspnetCoreVersion=6.0
-      
-      #  run: docker run openapitools/openapi-generator-cli generate -i local/petstore.yaml -g aspnetcore -o local/out/aspnetcore --additional-properties=aspnetCoreVersion=6.0
+          openapi-generator-cli generate -g aspnetcore -i petstore.yaml -c config.yaml -o out/aspnetcore --additional-properties=aspnetCoreVersion=6.0
+          ls out/aspnetcore
