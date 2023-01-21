@@ -2,7 +2,7 @@ name: Update Petshop
 on:
   push:
     branches:
-    - master
+    - main
 jobs:
   refresh:
     runs-on: docker://openapitools/openapi-generator-cli
