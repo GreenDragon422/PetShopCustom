@@ -8,17 +8,20 @@ on:
 jobs:
   refresh:
     runs-on: ubuntu-latest  
-    container: 
-      image: openapitools/openapi-generator-cli
-      volumes:
-        - mnt:/local      
     steps:
-      - name: checkout code
-        uses: actions/checkout@v3
+      - name: setup
+      - uses: actions/checkout@v3
         with:
           path: local
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+      - name: install generator
+        run: npm install @openapitools/openapi-generator-cli -g
       - name: run generator
         run: |
           cd local
-          ls
+          openapi-generator-cli generate -g aspnetcore -i petstore.yaml -c config.yaml -o local/out/aspnetcore --additional-properties=aspnetCoreVersion=6.0
+      
       #  run: docker run openapitools/openapi-generator-cli generate -i local/petstore.yaml -g aspnetcore -o local/out/aspnetcore --additional-properties=aspnetCoreVersion=6.0
