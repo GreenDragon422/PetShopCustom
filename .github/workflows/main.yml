@@ -3,6 +3,8 @@ on:
   push:
     branches:
     - main
+    paths:
+    - main.yml
 jobs:
   refresh:
     runs-on: ubuntu-latest    
@@ -10,6 +12,6 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v3
         with:
-          path: ${GITHUB_WORKSPACE}/local
+          path: local
       - name: run generator
         run: docker run openapitools/openapi-generator-cli generate -i ${GITHUB_WORKSPACE}/local/petstore.yaml -g aspnetcore -o ${GITHUB_WORKSPACE}/out/aspnetcore --additional-properties=aspnetCoreVersion=6.0
