@@ -12,7 +12,9 @@ jobs:
     runs-on: ubuntu-latest  
     steps:
       - name: save run date
-        run: echo "runtime=$(date)" >> $GITHUB_ENV          
+        run: |
+          now=$(date)
+          echo "runtime=$now" >> $GITHUB_ENV          
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
@@ -22,7 +24,6 @@ jobs:
       - name: run generator
         run: |
           openapi-generator-cli generate -g aspnetcore -i petstore.yaml -c config.yaml -o out/aspnetcore --additional-properties=aspnetCoreVersion=6.0
-          env
       - name: commit and push output
         run: |
           git config --global user.name 'GitHub Actions'
