@@ -14,7 +14,7 @@ jobs:
         with:
           path: local
       - name: run generator
-        run:
-          docker volume create localvol:${GITHUB_WORKSPACE}/local
-          docker volume ls
+        run: docker volume create localvol:${GITHUB_WORKSPACE}/local
+      - name: list volume
+        run: docker volume ls
         #run: docker run -v localvol:${GITHUB_WORKSPACE}/local openapitools/openapi-generator-cli generate -i /localvol/petstore.yaml -g aspnetcore -o /localvol/out/aspnetcore --additional-properties=aspnetCoreVersion=6.0
